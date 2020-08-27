@@ -3,10 +3,7 @@ import time
 
 
 def measure(
-    version=None,
-    input_map=None,
-    output_map=None,
-    log_function=print,
+    version=None, input_map=None, output_map=None, log_function=print,
 ):
     if input_map is None:
         input_map = dict()
@@ -45,14 +42,14 @@ def measure(
             for key, output_func in output_map.items():
                 output_kwargs[key] = output_func(result)
 
-            data = ({
+            data = {
                 "function": func.__name__,
                 "module": func.__module__,
                 "version": version,
                 "input": input_kwargs,
                 "output": output_kwargs,
                 "duration": duration,
-            })
+            }
 
             log_function(data)
             return result
