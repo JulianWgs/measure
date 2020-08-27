@@ -6,6 +6,7 @@ def measure(
     version=None,
     input_map=None,
     output_map=None,
+    log_function=print,
 ):
     if input_map is None:
         input_map = dict()
@@ -53,7 +54,7 @@ def measure(
                 "duration": duration,
             })
 
-            print(data)
+            log_function(data)
             return result
 
         return wrapper
