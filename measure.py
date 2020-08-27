@@ -3,12 +3,18 @@ import time
 
 
 def measure(
-    version=None, input_map=None, output_map=None, log_function=print,
+    version=None,
+    input_map=None,
+    output_map=None,
+    log_function=print,
+    additional_info=None,
 ):
     if input_map is None:
         input_map = dict()
     if output_map is None:
         output_map = dict()
+    if additional_info is None:
+        additional_info = dict()
 
     def measure_function(func):
         default = dict()
@@ -48,6 +54,7 @@ def measure(
                 "version": version,
                 "input": input_kwargs,
                 "output": output_kwargs,
+                "additional_info": additional_info,
                 "duration": duration,
             }
 
